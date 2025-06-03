@@ -1,0 +1,1 @@
+export const ticketPath = (ticketId: string) => `/tickets/${ticketId}`;
