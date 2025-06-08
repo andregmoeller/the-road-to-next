@@ -1,11 +1,13 @@
 import { LucideMessageSquareWarning } from "lucide-react";
 import { cloneElement } from "react";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type PlaceholderProps = {
   label: string;
-  icon?: React.ReactElement;
-  button?: React.ReactElement;
+  icon?: React.ReactElement<any>;
+  button?: React.ReactElement<any>;
 };
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 const Placeholder = ({ label, icon=<LucideMessageSquareWarning />, button=<div/> }: PlaceholderProps) => {
   return (
