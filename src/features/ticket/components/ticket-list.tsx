@@ -1,5 +1,5 @@
 import { use } from "react";
-import { getTickets } from "@/features/queries/get-tickets";
+import { getTickets } from "@/features/ticket/queries/get-tickets";
 import { TicketItem } from "./ticket-item";
 
 const TicketList = () => {
