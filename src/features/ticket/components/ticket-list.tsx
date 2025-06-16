@@ -1,9 +1,8 @@
-import { use } from "react";
 import { getTickets } from "@/features/ticket/queries/get-tickets";
 import { TicketItem } from "./ticket-item";
 
-const TicketList = () => {
-  const tickets = use(getTickets());
+const TicketList = async () => {
+  const tickets = await getTickets();
 
   return (
     <div className="flex-1 flex flex-col items-center gap-y-4 animate-fade-from-top">
