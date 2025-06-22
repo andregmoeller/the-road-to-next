@@ -20,18 +20,21 @@ const tickets = [
   },
 ];
 
-const seed = async () => {
-  const t0 = performance.now();
+async function seed() {
   console.log("DB Seed: Started…");
+  const t0 = performance.now();
 
-  await prisma.ticket.deleteMany();
-
-  await prisma.ticket.createMany({
-    data: tickets,
-  });
-
-  const t1 = performance.now();
-  console.log(`DB Seed: Finished (${t1 - t0}ms)`);
-};
+  try {
+    await prisma.ticket.deleteMany();
+    await prisma.ticket.createMany({ data: tickets });
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
+    const t1 = performance.now();
+    console.log(`DB Seed: Finished (${Math.round(t1 - t0)}ms)`);
+  }
+}
 
 seed();
