@@ -1,8 +1,9 @@
-import { ZodError } from "zod";
+import { z, ZodError } from "zod";
 
-export type ActionState = { 
-    message: string;
-    payload?: FormData 
+export type ActionState = {
+  message: string;
+  payload?: FormData;
+  fieldErrors: Record<string, string[] | undefined>;
 };
 
 export const fromErrorToActionState = (
@@ -10,16 +11,16 @@ export const fromErrorToActionState = (
   formData?: FormData
 ): ActionState => {
   if (error instanceof ZodError) {
-    // if validation error with Zod, return first error message
     return {
-      message: error.issues[0].message,
+      message: "",
       payload: formData,
+      fieldErrors: z.flattenError(error).fieldErrors,
     };
   } else if (error instanceof Error) {
-    // if another error instance, return error message e.g. database error
     return {
       message: error.message,
       payload: formData,
+      fieldErrors: {},
     };
   }
 
@@ -27,5 +28,13 @@ export const fromErrorToActionState = (
   return {
     message: "An unknown error occurred",
     payload: formData,
+    fieldErrors: {},
+  };
+};
+
+export const toActionState = (message: string): ActionState => {
+  return {
+    message,
+    fieldErrors: {},
   };
 };
