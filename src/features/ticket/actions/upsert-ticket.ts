@@ -39,5 +39,5 @@ export const upsertTicket = async (
     redirect(ticketPath(id));
   }
 
-  return toActionState("Ticket created");
+  return toActionState("SUCCESS", "Ticket created");
 };
