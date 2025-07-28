@@ -2,12 +2,12 @@
 
 import { useEffect } from "react";
 import { toast } from "sonner";
-import { deleteCookieByKey, getCookieByKey } from "@/actions/cookies";
+import { consumeCookiedByKey, deleteCookieByKey } from "@/actions/cookies";
 
 const RedirectToast = () => {
   useEffect(() => {
     const showCookieToast = async () => {
-      const message = await getCookieByKey("toast");
+      const message = await consumeCookiedByKey("toast");
 
       if (message) {
         toast.success(message);
