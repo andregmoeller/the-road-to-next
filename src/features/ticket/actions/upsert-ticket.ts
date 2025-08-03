@@ -11,6 +11,8 @@ import { ticketPath, ticketsPath } from "@/paths";
 const upsertTicketSchema = z.object({
   title: z.string().min(1).max(191),
   content: z.string().min(1).max(1024),
+  deadline: z.string(),
+  bounty: z.coerce.number().positive(),
 });
 
 export const upsertTicket = async (
@@ -22,6 +24,8 @@ export const upsertTicket = async (
     const data = upsertTicketSchema.parse({
       title: formData.get("title"),
       content: formData.get("content"),
+      deadline: formData.get("deadline"),
+      bounty: formData.get("bounty"),
     });
 
     await prisma.ticket.upsert({
