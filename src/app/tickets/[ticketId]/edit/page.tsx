@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { CardCompact } from "@/components/card-compact";
-import { TicketUpsertForm } from "@/features/ticket/components/ticket-upsert.form";
+import { TicketUpsertForm } from "@/features/ticket/components/ticket-upsert-form";
 import { getTicket } from "@/features/ticket/queries/get-ticket";
 
 type TicketEditPageProps = {
