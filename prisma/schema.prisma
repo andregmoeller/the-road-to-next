@@ -14,6 +14,15 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  userId    String
+  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
+
+  @@index([userId])
+}
+
 model Ticket {
   id        String       @id @default(cuid())
   createdAt DateTime     @default(now())
@@ -29,4 +38,12 @@ enum TicketStatus {
   OPEN
   IN_PROGRESS
   DONE
+}
+
+model User {
+  id           String    @id @default(cuid())
+  username     String    @unique
+  email        String    @unique
+  passwordHash String
+  sessions     Session[]
 }
