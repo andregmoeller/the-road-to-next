@@ -4,7 +4,7 @@ import { Prisma } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { ActionState, fromErrorToActionState, toActionState } from "@/components/form/utils/to-action-state";
-import { hashPassword } from "@/features/password/utils/hash";
+import { hashPassword } from "@/features/password/utils/hash-and-verify";
 import { createSession } from "@/lib/lucia";
 import { prisma } from "@/lib/prisma";
 import { ticketsPath } from "@/paths";

@@ -1,5 +1,7 @@
 export const homePath = () => "/";
 
+export const passwordForgotPath = () => "/password-forgot";
+
 export const signInPath = () => "/sign-in";
 export const signUpPath = () => "/sign-up";
 
