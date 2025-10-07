@@ -51,8 +51,7 @@ export const fromErrorToActionState = (
 export const toActionState = (
   status: ActionState["status"],
   message: string,
-  formData?: FormData,
-  data?: unknown
+  formData?: FormData
 ): ActionState => {
   return {
     status,
@@ -60,6 +59,5 @@ export const toActionState = (
     fieldErrors: {},
     payload: formData,
     timestamp: Date.now(),
-    data,
   };
 };
