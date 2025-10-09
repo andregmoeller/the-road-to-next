@@ -3,8 +3,8 @@
 import { redirect } from "next/navigation";
 import { invalidateSession } from "@/lib/lucia";
 import { signInPath } from "@/paths";
-import { getAuth } from "../queries/get-auth";
 import { deleteSessionCookie } from "../utils/session-cookie";
+import { getAuth } from "./get-auth";
 
 export const signOut = async () => {
   const { session } = await getAuth();
