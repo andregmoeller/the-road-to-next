@@ -1,14 +1,20 @@
+"use client";
+
 import { LucideKanban, LucideLogOut } from "lucide-react";
 import Link from "next/link";
-import { getAuth } from "@/features/auth/actions/get-auth";
 import { signOut } from "@/features/auth/actions/sign-out";
+import { useAuth } from "@/features/auth/hooks/use-auth";
 import { homePath, signInPath, signUpPath, ticketsPath } from "@/paths";
 import { SubmitButton } from "./form/submit-button";
 import { ThemeSwitcher } from "./theme/theme-switcher";
 import { buttonVariants } from "./ui/button";
 
-const Header = async () => {
-  const { user } = await getAuth();
+const Header = () => {
+  const { user, isFetched } = useAuth();
+
+  if (!isFetched) {
+    return null;
+  }
 
   const navItems = user ? (
     <>
@@ -40,7 +46,7 @@ const Header = async () => {
   );
 
   return (
-    <nav className="supports-backdrop-blur:bg-background/60 fixed left-0 right-0 top-0 z-20 border-b bg-background/95 backdrop-blur w-full flex py-2.5 px-5 justify-between">
+    <nav className="animate-header-from-top supports-backdrop-blur:bg-background/60 fixed left-0 right-0 top-0 z-20 border-b bg-background/95 backdrop-blur w-full flex py-2.5 px-5 justify-between">
       <div className="flex align-items gap-x-2">
         <Link href={homePath()} className={buttonVariants({ variant: "outline" })}>
           <LucideKanban />
