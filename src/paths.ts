@@ -1,3 +1,6 @@
+export const accountProfilePath = () => "/account/profile";
+export const accountPasswordPath = () => "/account/password";
+
 export const homePath = () => "/";
 
 export const passwordForgotPath = () => "/password-forgot";
