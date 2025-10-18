@@ -29,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <ThemeProvider>
           <Header />
           <div className="flex h-screen overflow-hidden border-collapse">
@@ -44,4 +46,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-};
+}

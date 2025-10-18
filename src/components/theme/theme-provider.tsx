@@ -4,7 +4,7 @@ type ThemeProviderProps = {
   children: React.ReactNode;
 };
 
-const ThemeProvider =  ({ children }: ThemeProviderProps) => {
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return (
     <BaseThemeProvider attribute="class" defaultTheme="system" enableSystem>
       {children}

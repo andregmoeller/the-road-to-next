@@ -13,7 +13,6 @@ type SidebarItemProps = {
 };
 
 const SidebarItem = ({ isOpen, isActive, navItem }: SidebarItemProps) => {
-
   return (
     <>
       {navItem.separator && <Separator />}

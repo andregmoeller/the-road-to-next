@@ -10,32 +10,31 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [{
-  ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"]
-}, ...compat.extends("next/core-web-vitals", "next/typescript"), {
-  plugins: {
-    "simple-import-sort": simpleImportSort,
-  },
-  rules: {
-    "simple-import-sort/imports": [
-      "error",
-      {
-        groups: [["^\\u0000", "^@?\\w", "^[^.]", "^\\."]],
-      },
+const eslintConfig = [
+  {
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
     ],
-    "simple-import-sort/exports": "error",
-    "max-len": [
-      "error",
-      {
-        "code": 80,
-        "ignorePattern": "^\\s*import",
-        "ignoreComments": true,
-        "ignoreUrls": true,
-        "ignoreStrings": true,
-        "ignoreTemplateLiterals": true
-      }
-    ]
   },
-}];
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
+  {
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
+    rules: {
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [["^\\u0000", "^@?\\w", "^[^.]", "^\\."]],
+        },
+      ],
+      "simple-import-sort/exports": "error",
+    },
+  },
+];
 
 export default eslintConfig;

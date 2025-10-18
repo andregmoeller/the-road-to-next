@@ -45,10 +45,10 @@ const Sidebar = () => {
       <div className="px-3 py-2">
         <nav className="space-y-2">
           {navItems.map((navItem, index) => (
-            <SidebarItem 
-              key={navItem.title} 
-              isOpen={isOpen} 
-              isActive={activeIndex === index} 
+            <SidebarItem
+              key={navItem.title}
+              isOpen={isOpen}
+              isActive={activeIndex === index}
               navItem={navItem}
             />
           ))}

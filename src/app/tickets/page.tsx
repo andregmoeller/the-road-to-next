@@ -26,5 +26,5 @@ const TicketsPage = async () => {
     </div>
   );
 };
-  
+
 export default TicketsPage;

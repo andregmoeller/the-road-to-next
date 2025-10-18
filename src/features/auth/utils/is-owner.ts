@@ -1,4 +1,3 @@
-
 import { User } from "@prisma/client";
 
 type Entity = {

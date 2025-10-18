@@ -8,4 +8,4 @@ export default async function AuthenticatedLayout({
   await getAuthOrRedirect();
 
   return <>{children}</>;
-};
+}

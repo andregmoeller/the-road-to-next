@@ -1,5 +1,5 @@
-import { hash } from '@node-rs/argon2';
-import { PrismaClient } from '@prisma/client';
+import { hash } from "@node-rs/argon2";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -51,7 +51,7 @@ async function seed() {
     await prisma.ticket.deleteMany();
     await prisma.user.deleteMany();
     console.log("-> Existing data deleted.");
-    
+
     console.log("-> Creating new users and their tickets...");
     for (const userData of seedData) {
       const passwordHash = await hash(userData.password);
@@ -69,7 +69,6 @@ async function seed() {
       });
     }
     console.log("-> New data created successfully.");
-
   } catch (e) {
     console.error(e);
     process.exit(1);

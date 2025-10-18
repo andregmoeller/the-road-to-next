@@ -4,7 +4,7 @@ type HeadingProps = {
   title: string;
   description?: string;
   tabs?: React.ReactNode;
-}
+};
 
 const Heading = ({ title, description, tabs }: HeadingProps) => {
   return (
@@ -16,7 +16,7 @@ const Heading = ({ title, description, tabs }: HeadingProps) => {
           <p className="text-sm text-muted-foreground">{description}</p>
         )}
       </div>
-      
+
       <Separator />
     </>
   );
