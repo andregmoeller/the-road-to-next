@@ -24,6 +24,17 @@ const eslintConfig = [{
       },
     ],
     "simple-import-sort/exports": "error",
+    "max-len": [
+      "error",
+      {
+        "code": 80,
+        "ignorePattern": "^\\s*import",
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ]
   },
 }];
 

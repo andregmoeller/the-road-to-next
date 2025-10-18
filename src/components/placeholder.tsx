@@ -9,7 +9,11 @@ type PlaceholderProps = {
 };
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
-const Placeholder = ({ label, icon=<LucideMessageSquareWarning />, button=<div/> }: PlaceholderProps) => {
+const Placeholder = ({
+  label,
+  icon = <LucideMessageSquareWarning />,
+  button = <div />,
+}: PlaceholderProps) => {
   return (
     <div className="flex-1 self-center flex flex-col items-center justify-center gap-y-2">
       {cloneElement(icon, {

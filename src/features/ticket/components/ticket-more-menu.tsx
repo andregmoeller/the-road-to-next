@@ -50,7 +50,10 @@ const TicketMoreMenu = ({ ticket, trigger }: TicketMoreMenuProps) => {
   };
 
   const ticketStatusRadioGroupItems = (
-    <DropdownMenuRadioGroup value={ticket.status} onValueChange={handleUpdateTicketStatus}>
+    <DropdownMenuRadioGroup
+      value={ticket.status}
+      onValueChange={handleUpdateTicketStatus}
+    >
       {(Object.keys(TICKET_STATUS_LABELS) as Array<TicketStatus>).map((key) => (
         <DropdownMenuRadioItem key={key} value={key}>
           {TICKET_STATUS_LABELS[key]}
