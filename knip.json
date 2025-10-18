@@ -1,0 +1,9 @@
+{
+  "ignore": ["src/components/ui/**"],
+  "ignoreDependencies": [
+    "eslint-config-next",
+    "eslint-config-prettier",
+    "tailwindcss",
+    "tw-animate-css"
+  ]
+}

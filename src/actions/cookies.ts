@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 
-export const getCookieByKey = async (key: string) => {
+const getCookieByKey = async (key: string) => {
   const cookie = (await cookies()).get(key);
 
   if (!cookie) {
