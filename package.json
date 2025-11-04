@@ -2,6 +2,10 @@
   "name": "the-road-to-next-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "^11.6.1",
+    "node": ">= 22"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
