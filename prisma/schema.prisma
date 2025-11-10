@@ -50,5 +50,5 @@ model User {
   email        String    @unique
   passwordHash String
   sessions     Session[]
-  tickets Ticket[]
+  tickets      Ticket[]
 }
