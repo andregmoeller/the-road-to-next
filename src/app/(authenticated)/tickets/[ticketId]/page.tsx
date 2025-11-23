@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { TicketItem } from "@/features/ticket/components/ticket-item";
 import { getTicket } from "@/features/ticket/queries/get-ticket";
 import { homePath } from "@/paths";
+import { getComments } from "@/features/comment/queries/get-comments";
 
 type TicketPageProps = {
   params: Promise<{
@@ -13,7 +14,13 @@ type TicketPageProps = {
 
 const TicketPage = async ({ params }: TicketPageProps) => {
   const { ticketId } = await params;
-  const ticket = await getTicket(ticketId);
+  const ticketPromise = getTicket(ticketId);
+  const commentsPromise = getComments(ticketId);
+
+  const [ticket, comments] = await Promise.all([
+    ticketPromise,
+    commentsPromise,
+  ]);
 
   if (!ticket) {
     notFound();
