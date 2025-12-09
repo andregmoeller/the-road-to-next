@@ -7,3 +7,8 @@ updates:
     # Check for updates once a week
     schedule:
       interval: "weekly"
+    # Up to 10 open PRs - the default is 5
+    open-pull-requests-limit: 10
+    # Updates to the latest version but keeps the range format
+    # This setting was chosen because this is a learning project
+    versioning-strategy: increase
