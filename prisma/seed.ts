@@ -1,7 +1,15 @@
 import { hash } from "@node-rs/argon2";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import "dotenv/config";
 
-const prisma = new PrismaClient();
+const adapter = new PrismaPg({
+  connectionString: process.env.DIRECT_URL!,
+});
+
+const prisma = new PrismaClient({
+  adapter,
+});
 
 const usersData = [
   {
