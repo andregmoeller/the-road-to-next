@@ -25,6 +25,14 @@ model Comment {
   @@index([userId])
 }
 
+model PasswordResetToken {
+  tokenHash String   @unique
+  expiresAt DateTime
+  userId    String
+  user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)
+  @@index([userId])
+}
+
 model Session {
   id        String   @id
   expiresAt DateTime
@@ -61,6 +69,7 @@ model User {
   username     String    @unique
   email        String    @unique
   passwordHash String
+  passwordResetTokens PasswordResetToken[]
   sessions     Session[]
   tickets      Ticket[]
   comments     Comment[]
