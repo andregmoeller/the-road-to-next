@@ -87,7 +87,7 @@
     "knip": "^5.82.1",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
-    "prisma": "^7.2.0",
+    "prisma": "^7.3.0",
     "react-email": "5.2.5",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
