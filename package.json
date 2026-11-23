@@ -62,7 +62,7 @@
     "react-intersection-observer": "^10.0.0",
     "resend": "^6.8.0",
     "sonner": "^2.0.7",
-    "tailwind-merge": "^3.4.0",
+    "tailwind-merge": "^3.7.1",
     "use-debounce": "^10.1.0",
     "zod": "^4.3.5"
   },
